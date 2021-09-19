@@ -1,5 +1,4 @@
 # internship
-internship 
 
 Assalom alekumu Alohim ishlarmizni omadni va barkasni bersin muhimi halol va mehnat qilib mofaqiyatga erishaylik . 
 
