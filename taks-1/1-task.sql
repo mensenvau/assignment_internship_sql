@@ -1,7 +1,7 @@
--- create datbase qilamiz 
+-- create datbase qilamiz .
 CREATE DATABASE  HR;
 
--- database tanladig 
+-- database tanladig .
 USE HR ;
 
 -- Employee table yasaymiz  

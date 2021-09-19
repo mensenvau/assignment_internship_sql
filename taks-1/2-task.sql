@@ -1,7 +1,7 @@
--- create datbase qilamiz 
+-- create datbase qilamiz .
 CREATE DATABASE  Store;
 
--- database tanladig 
+-- database tanladig .
 USE Store ;
 
 -- Region table yaratamiz 
