@@ -7,8 +7,11 @@ SELECT orderid ,
        empid
 FROM Sales.Orders
 WHERE  YEAR(orderdate)=2015 AND MONTH(orderdate)=6;
+
 -- CASE 2 => WHERE Sales.Orders.orderdate LIKE '2015-06%';
 -- WHERE Sales.Orders.orderdate LIKE '2015-06%';
+-- CASE 3 => BETWEEN
+-- WHERE orderdate  BETWEEN '2015-06-01' AND '2015-06-31';
 
 
 -- TASK 2
@@ -201,7 +204,7 @@ WHERE C.custid IN (SELECT *FROM tmp)
 SELECT custid,
        ordermonth,
        qty,
-       SUM(qty) OVER (PARTITION BY custid ORDER BY ordermonth ASC,custid ROWS BETWEEN UNBOUNDED PRECEDING AND 0 PRECEDING) AS sum
+       SUM(qty) OVER (PARTITION BY custid ORDER BY ordermonth ASC,custid ROWS BETWEEN UNBOUNDED PRECEDING AND 0 PRECEDING) AS runqty
 FROM Sales.CustOrders
 
 
@@ -246,4 +249,3 @@ ORDER BY Salary
 SELECT Parent FROM tblPerson
 GROUP BY Parent
 HAVING COUNT(DISTINCT ChildGender)>1
-
