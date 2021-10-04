@@ -32,10 +32,11 @@ ORDER BY  empid
 
 -- TASK 2
 -- error query
-SELECT Customers.custid, Customers.companyname, Orders.orderid, Orders.orderdate
-FROM Sales.Customers AS C
-  INNER JOIN Sales.Orders AS O
-    ON Customers.custid = Orders.custid;
+-- SELECT Customers.custid, Customers.companyname, Orders.orderid, Orders.orderdate
+-- FROM Sales.Customers AS C
+--   INNER JOIN Sales.Orders AS O
+--     ON Customers.custid = Orders.custid;
+-- #########################
 -- Here we changed the TABLE names via AS
 -- so its fields can be referenced by the New Name (C, O)
 -- here is the right solution :)
@@ -138,5 +139,28 @@ ORDER BY custid
 -- Union all -  (allows duplicate values)
 
 -- TASK 11
+-- Roles = 'Actor' and (Tom,Bob) save tmp_M
+WITH tmp_M AS (
+    SELECT Mname FROM Movie
+       WHERE Roles = 'Actor'
+       GROUP BY MName
+       HAVING count(DISTINCT AName) > 1
+)
+SELECT MName , AName , Roles FROM Movie AS M1
+   WHERE Roles = 'Actor'
+   AND  Mname IN (SELECT *FROM tmp_M)
+
+-- TASK 12
+-- IIF function max 3 value
+SELECT Year1,IIF(Max1>Max2,IIF(Max1>Max3,Max1,Max3),IIF(Max2>Max3,Max2,Max3)) AS MaxValue FROM TestMax
+
+-- TASK 13
+-- INNER JOIN Person to Person P1.EmpSalary > P2.EmpSalary SELECT
+SELECT P1.* FROM Person AS P1
+    INNER JOIN Person AS P2
+        ON P1.MgrID = P2.EmpID
+WHERE P1.EmpSalary>P2.EmpSalary
 
 
+-- TASK 14
+SELECT Name FROM tblFruit
